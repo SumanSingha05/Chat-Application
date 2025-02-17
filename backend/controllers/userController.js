@@ -1,10 +1,10 @@
-import { User } from "../models/userModel";
+import { User } from "../models/userModel.js";
 import bcrypt from "bcryptjs";
 
 export const register = async(req,res) => {
     try{
-        const {fullname, username, password, confirmPassword, gender} = req.body;
-        if(!fullname, !username, !password, !confirmPassword, !gender){
+        const {fullName, username, password, confirmPassword, gender} = req.body;
+        if(!fullName, !username, !password, !confirmPassword, !gender){
             return res.status(400).json({message:"All fields are required"});
         }
         if(password != confirmPassword){
@@ -23,13 +23,16 @@ export const register = async(req,res) => {
         const femaleProfilePhoto = `https://avatar.iran.liara.run/public/girl?username=${username}`;
      
         await User.create ({
-            fullname,
+            fullName,
             username,
             password:hashedPassword,
-            profilePhoto: gender === male ? maleProfilePhoto:femaleProfilePhoto,
+            profilePhoto: gender === "male" ? maleProfilePhoto:femaleProfilePhoto,
             gender
         })          
-        
+        return res.status(201).json({
+            message:"Account created successfully.",
+            success:true
+        })
     }catch(error){
         console.log(error);
         
