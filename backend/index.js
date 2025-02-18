@@ -16,7 +16,7 @@ app.use(cookieParser());
 
 // routes
 app.use("/api/v1/user",userRoute);
-app.use(/api/v1/message,messageRoute);
+app.use("/api/v1/message",messageRoute);
 // http://localhost:8080/api/v1/user/register;
 
 app.listen(PORT, () => {
