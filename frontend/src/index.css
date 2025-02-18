@@ -1,5 +1,11 @@
 @import "tailwindcss";
-
 @plugin "daisyui" {
     themes: light --default, dark --prefersdark, cupcake;
   }
+
+body {
+    background-image: url(../public//bg.avif); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
