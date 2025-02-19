@@ -36,6 +36,16 @@ const Signup = () => {
            className='w-full input input-bordered h-10'
            type="password" placeholder='Suman'></input>
         </div>
+        <div className='flex items-center my-4'>
+        <div className='flex items-center'>
+          <p>Male</p>
+          <input type="checkbox" defaultChecked className="checkbox mx-2" />
+        </div>
+        <div className='flex items-center'>
+          <p>Female</p>
+          <input type="checkbox" defaultChecked className="checkbox mx-2" />
+        </div>
+        </div>
       </form>
     </div>
     </div>
