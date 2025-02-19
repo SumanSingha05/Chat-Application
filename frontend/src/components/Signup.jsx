@@ -18,7 +18,6 @@ const Signup = () => {
   const onSubmitHandler = async (e) => {
     e.preventDefault();
     try {
-
       const res = await axios.post(`http://localhost:8080/api/v1/user/register`, user, {
         headers:{
           'Content-Type':'application/json'
@@ -26,9 +25,11 @@ const Signup = () => {
         withCredentials:true
       });
       if(res.data.success) {
+        navigate("/login")
         toast.success(res.data.message);
       }
     }catch(error){
+      toast.error(error.response.data.message);
       console.log(error);
     }
     setUser ({
