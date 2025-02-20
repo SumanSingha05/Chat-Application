@@ -1,8 +1,11 @@
 import React from 'react'
+import OtherUser from './OtherUser'
 
 const OtherUsers = () => {
   return (
-    <div>OtherUsers</div>
+    <div className='overflow-auto'>
+      <OtherUser/>
+    </div>
   )
 }
 
