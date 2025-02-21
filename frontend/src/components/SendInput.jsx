@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { setMessages } from '../redux/messageSlice';
 
 const SendInput = () => {
+ 
   const [message, setMessage] = useState("");
   const dispatch = useDispatch();
   const { selectedUser } = useSelector (store => store.user);
