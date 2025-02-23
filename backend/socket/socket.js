@@ -13,9 +13,19 @@ const io = new Server(server, {
     },
 });
 
+const userSocketMap = {}; //{userId->socketId}
+
+
 io.on('connection', (socket) => {
     console.log('user connected', socket.id);
-    
-})
+  
+    const userId = socket.handshake.query.userId
+    if(userId != undefined) {
+        userSocketMap[userId] = socket.id;
+    }
+
+
+
+    })
 
 export {app, io, server}
