@@ -5,6 +5,8 @@ import userRoute from "./routes/userRoute.js"
 import cookieParser from "cookie-parser"
 import messageRoute from "./routes/messageRoute.js"
 import cors from "cors";
+// import { server } from "./socket/socket.js";
+
 
 dotenv.config({});
 
