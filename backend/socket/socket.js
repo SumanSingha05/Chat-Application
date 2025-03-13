@@ -1,21 +1,14 @@
 import { Server } from "socket.io";
-import http from "http";
-import express from "express";
+import server from "../server.js";
 
-const app = express();
 
-const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
-        origin:['*'],
-        methods:['GET', 'POST'],
-    },
+    origin: "*",
+  },
 });
 
-
-
 const userSocketMap = {}; //{userId->socketId}
-
 
 io.on('connection', (socket) => {
     console.log('user connected', socket.id);
@@ -26,8 +19,6 @@ io.on('connection', (socket) => {
     }
 
     io.emit('getOnlineUsers', Object.keys(userSocketMap)); // emit = send backend data to frontend
-    
-
 
     socket.on('disconnect', () => {
         console.log('user disconnected', socket.id);
@@ -38,4 +29,4 @@ io.on('connection', (socket) => {
 
     })
 
-export {app, io, server}
+export {io};
